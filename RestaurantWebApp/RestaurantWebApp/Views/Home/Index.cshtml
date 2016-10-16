@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+<div>
+    @Html.ActionLink("Member Entry", "Index", new { controller = "Entry" }, new { @style = "color:Green" })
+</div>
+<div>
+    @Html.ActionLink("Order for Food", "Order", new { controller = "Order" }, new { @style = "color:Green" })
+</div>
+
+<div>
+    @Html.ActionLink("View Report", "Index", new { controller = "ViewReport" }, new { @style = "color:Green" })
+</div>

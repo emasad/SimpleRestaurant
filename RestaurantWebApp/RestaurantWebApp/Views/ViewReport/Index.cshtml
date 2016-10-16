@@ -1,0 +1,80 @@
+﻿@model RestaurantWebApp.ViewModels.ReportVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>ViewReportVM</h4>
+    <hr/>
+    @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+    <div class="form-group">
+        @Html.LabelFor(model => model.CodeId, htmlAttributes: new {@class = "control-label col-md-2"})
+        <div class="col-md-10">
+            @Html.DropDownListFor(x => x.CodeId, (SelectList) ViewBag.UserList, "Select type...", new {@class = "form-control"})
+            @Html.ValidationMessageFor(model => model.CodeId, "", new {@class = "text-danger"})
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new {@class = "control-label col-md-2"})
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name, new {htmlAttributes = new {@readonly = "readonly", @class = "form-control"}})
+            @Html.ValidationMessageFor(model => model.Name, "", new {@class = "text-danger"})
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email, htmlAttributes: new {@class = "control-label col-md-2"})
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Email, new {htmlAttributes = new {@readonly = "readonly", @class = "form-control"}})
+            @Html.ValidationMessageFor(model => model.Email, "", new {@class = "text-danger"})
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Type, htmlAttributes: new {@class = "control-label col-md-2"})
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Type, new {htmlAttributes = new {@readonly = "readonly", @class = "form-control"}})
+            @Html.ValidationMessageFor(model => model.Type, "", new {@class = "text-danger"})
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PickDate, htmlAttributes: new {@class = "control-label col-md-2"})
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PickDate, new {htmlAttributes = new {@class = "form-control", type = "date"}})
+            @Html.ValidationMessageFor(model => model.PickDate, "", new {@class = "text-danger"})
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Show" id="show" class="btn btn-default"/>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.Label("Total Amount", htmlAttributes: new {@class = "control-label col-md-2"})
+    <div class="col-md-10">
+        @Html.Editor("TotalAmount", new {htmlAttributes = new {@class = "form-control", @readonly = "readonly"}})
+    </div>
+</div>
+
+<table class="table table-bordered" id="tblOrderList">
+</table>>
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+<script src="~/Scripts/OrderFood/OrderFoodInfo.js"></script>
